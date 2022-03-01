@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './components/App';
 
-const App = ()=>{
-  return 'Hola mundo'
-}
 
 ReactDOM.render(<App/>,document.getElementById('root'))
