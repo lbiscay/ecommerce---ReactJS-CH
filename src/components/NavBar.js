@@ -1,10 +1,12 @@
+import CartWidget from "./CartWidget"
+
 const NavBar = () => {
   return (
     <nav>
-    <h1>Libreria virtual</h1>
     <a href="#">Inicio</a>
     <a href="#">Catálogo</a>
     <a href="#">Carrito</a>
+    <CartWidget/>
 </nav>
   )
 }
