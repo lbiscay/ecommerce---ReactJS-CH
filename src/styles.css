@@ -31,3 +31,16 @@ header nav a{
 #greeting1{
     text-align: center;
 }
+
+.libro{
+    margin: 10px;
+    box-shadow: 0 6px 6px hsl(0deg 0% 0% /0.3);
+    padding: 10px;
+    border-radius: 5px;
+    width: 300px;
+    --bs-bg-opacity: 0.25;
+    background-color: rgb(156, 154, 154);
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-dark-rgb),var(--bs-text-opacity))!important;
+    
+}
