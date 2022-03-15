@@ -39,8 +39,32 @@ header nav a{
     border-radius: 5px;
     width: 300px;
     --bs-bg-opacity: 0.25;
-    background-color: rgb(156, 154, 154);
+    background-color: rgb(182, 182, 182);
     --bs-text-opacity: 1;
     color: rgba(var(--bs-dark-rgb),var(--bs-text-opacity))!important;
+
     
+}
+
+.listaProductos{
+    display: inline-flex;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.libroDetalle{
+    display: flex;
+    width: 600px;
+    margin: 10px;
+    box-shadow: 0 6px 6px hsl(0deg 0% 0% /0.3);
+    padding: 10px;
+    border-radius: 5px;
+    --bs-bg-opacity: 0.25;
+    background-color: rgb(182, 182, 182);
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-dark-rgb),var(--bs-text-opacity))!important;
+}
+
+.columna{
+    flex: 50%;
 }
