@@ -36,7 +36,7 @@ header nav a{
     margin: 10px;
     box-shadow: 0 6px 6px hsl(0deg 0% 0% /0.3);
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 3px;
     width: 300px;
     --bs-bg-opacity: 0.25;
     background-color: rgb(182, 182, 182);

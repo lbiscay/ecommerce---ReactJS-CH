@@ -1,8 +1,13 @@
+import { Link } from "react-router-dom"
+
 const CartWidget = () => {
   return (
-    <span className="material-icons">
-      shopping_basket
-    </span>
+    <Link to='carrito'>
+      <span className="material-icons">
+        shopping_basket
+      </span>
+    </Link>
+    
   )
 }
 
