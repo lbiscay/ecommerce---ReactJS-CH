@@ -1,30 +1,37 @@
 import { useState } from "react"
 
-export const ItemCount = ({stock,inicial}) => {
+export const ItemCount = ({stock,inicial, onAdd}) => {
   const [estado,setEstado] = useState(inicial)
+
   const sumar = ()=>{
-    if(estado < stock){
-      setEstado(estado+1)
-    }
+    setEstado(estado+1)
   }
 
   const restar = ()=>{
-    if(estado > inicial){
-      setEstado(estado-1)
+      if(estado > 0){
+        setEstado(estado-1)
+      }
+  }
+
+  const agregar = ()=>{
+    if(estado>stock){
+      alert('No hay items suficientes en stock, intente con una cantidad menor.')
+    }else{
+      onAdd(estado)
     }
+    
+    
   }
-  const onAdd = ()=>{
-    console.log('La cantidad de items es ',estado)
-    setEstado(inicial)
-  }
+
   return (
-    <>
-      <p>Libros (10 en stock) </p>
-      <p>{estado}</p>
+    <div className='itemCount'>
+      <p>{estado} (Cantidad disponible:{stock})</p>
       <button onClick={restar}>Restar</button>
       <button onClick={sumar}>Sumar</button>
-      <button onClick={onAdd}>Agregar al carrito</button>
-    </>
+      <button onClick={agregar}>Agregar al carrito</button>
+    </div>
+      
+    
   )
 }
 

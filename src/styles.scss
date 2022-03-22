@@ -21,12 +21,13 @@ header{
 a{
     text-decoration: none;
 }
-
-header nav a{
-    margin-left: 1rem;
-    display: inline-block;
-    color: black;
-}
+    nav{
+        a{
+            margin-left: 1rem;
+            display: inline-block;
+            color: black;
+        }
+    }
 
 #greeting1{
     text-align: center;
@@ -43,6 +44,20 @@ header nav a{
     --bs-text-opacity: 1;
     color: rgba(var(--bs-dark-rgb),var(--bs-text-opacity))!important;
 
+    p{  
+    text-align: center;
+    }
+
+    h3{
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        text-align: center;
+    }
+    img{
+        margin: 10px;
+        margin-left: 25px;
+    }
     
 }
 
@@ -51,7 +66,12 @@ header nav a{
     align-items: flex-start;
     flex-direction: row;
 }
-
+.itemDetailContainer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
 .libroDetalle{
     display: flex;
     width: 600px;
@@ -63,8 +83,35 @@ header nav a{
     background-color: rgb(182, 182, 182);
     --bs-text-opacity: 1;
     color: rgba(var(--bs-dark-rgb),var(--bs-text-opacity))!important;
+
+
+    h3{
+        text-align: left;
+    }
 }
 
 .columna{
     flex: 50%;
+
+}
+.columna1{
+    flex: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#greeting1{
+    margin: 10px;
+}
+
+.itemCount{
+    height: 80px;
+    width: 200px;
+    margin: 10px;
+    padding: 7px;
+    background-color: rgb(156, 154, 154);
+    text-align: center;
+   
 }

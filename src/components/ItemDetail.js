@@ -1,9 +1,25 @@
+import ItemCount from "./ItemCount"
+import { useState } from "react"
+import { NavLink } from "react-router-dom"
+
 
 const ItemDetail = (props) => {
+  const [stock,setStock]=useState(10)
+  const [cantidad,setCantidad] = useState(0)
+
+  const onAdd = (cant)=>{
+    setCantidad(cant)
+    setStock(stock-cant)
+  }
+
+
   return (
+    <>
       <div  className='libroDetalle' key={props.libro.id}>
-        <div  className='columna'>
+        <div  className='columna1'>
           <img src={props.libro.imagen} width="230" height="360" alt=''></img>
+          <br></br>
+          <ItemCount stock = {stock} inicial = {1} onAdd={onAdd}/>
         </div>
         <div  className='columna'>
           <p>  <b>ID:</b> {props.libro.id}</p>
@@ -14,9 +30,12 @@ const ItemDetail = (props) => {
           <p>  <b>Sinopsis:</b> </p>
           <p>{props.libro.sinopsis}</p>
           <br></br>
-          <b> $ {props.libro.precio}</b>
+          <h3><b> $ {props.libro.precio}</b></h3>
         </div>
       </div>
+      <NavLink to="/carrito"><button>Terminar compra</button></NavLink>
+      
+    </>
   )
 }
 

@@ -1,6 +1,5 @@
 import Header from './components/Header'
 import {ItemListContainer} from './components/ItemListContainer'
-import ItemCount from "./components/ItemCount"
 import ItemDetailCointainer from './components/ItemDetailCointainer'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
@@ -17,8 +16,6 @@ const App = ()=>{
         <Route path= '/category/:idCat' element= {<ItemListContainer  greeting1='Bienvenido!'/>}/>
         <Route path= '/item/:idLib' element= {<ItemDetailCointainer/>}/>
       </Routes>
-
-      <ItemCount stock = {10} inicial = {1}/>
       <ToastContainer />
     </BrowserRouter>   
   )
