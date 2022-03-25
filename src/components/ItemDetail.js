@@ -1,11 +1,14 @@
 import ItemCount from "./ItemCount"
 import { useState } from "react"
 import { NavLink } from "react-router-dom"
-
+import { cartContext } from './CartContext'
+import { useContext } from 'react'
 
 const ItemDetail = (props) => {
-  const [stock,setStock]=useState(10)
+  const [stock,setStock] = useState(10)
   const [cantidad,setCantidad] = useState(0)
+
+  const {agregarItem} = useContext(cartContext)
 
   const onAdd = (cant)=>{
     setCantidad(cant)
@@ -33,7 +36,7 @@ const ItemDetail = (props) => {
           <h3><b> $ {props.libro.precio}</b></h3>
         </div>
       </div>
-      <NavLink to="/carrito"><button>Terminar compra</button></NavLink>
+      <NavLink to="/carrito" onClick={()=>{agregarItem(props.libro,cantidad)}}><button>Agregar a carrito</button></NavLink>
       
     </>
   )

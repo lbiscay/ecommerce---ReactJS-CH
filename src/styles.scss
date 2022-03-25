@@ -4,9 +4,15 @@
     box-sizing: border-box;
 }
 
-html, body, #root{
-    background-color: rgb(250, 224, 224);
-    height: 100%vh;
+html{
+    
+    body{
+        background-color: rgb(250, 224, 224);
+        height: 100%vh;
+        h1{
+            text-align:center;
+        }
+    }
 }
 
 header{

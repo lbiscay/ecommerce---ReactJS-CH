@@ -45,7 +45,6 @@ export const ItemListContainer = (greeting) => {
   }else{
     return (
       <>
-        <h1 id='greeting1'>{greeting.greeting1}</h1>
         <div>
           <ItemList libros= {libros}/>
         </div>
