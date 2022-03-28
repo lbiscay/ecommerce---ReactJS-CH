@@ -9,7 +9,7 @@ const Item = (props) => {
       <br></br>
       <h3><b> $ {props.libro.precio}</b></h3>
       <br></br>
-      <p><Link to={`/item/${props.libro.id}`}>Ver detalles</Link></p>
+      <p><Link to={`/item/${props.libro.id}`}><button>Ver detalles</button></Link></p>
     </div>
   )
 }

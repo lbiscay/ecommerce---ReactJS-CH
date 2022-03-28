@@ -1,4 +1,3 @@
-import CartWidget from "./CartWidget"
 import { NavLink } from "react-router-dom"
 
 const NavBar = () => {
@@ -7,7 +6,6 @@ const NavBar = () => {
       <NavLink to="/category/fantastico">Fantástico</NavLink>
       <NavLink to="/category/cienciaficcion">Ciencia ficción</NavLink>
       <NavLink to="/category/realismo">Realismo</NavLink>
-      <CartWidget/>
     </nav>
   )
 }

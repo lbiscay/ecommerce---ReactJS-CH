@@ -37,16 +37,21 @@ const ProviderComponent = ({ children }) => {
   const removerItem = (id) => {
     let copia = carrito.slice(0)
     let nuevoCarrito = copia.filter((producto) => producto.id !== id)
-    setCarrito(nuevoCarrito)
 
+    setCarrito(nuevoCarrito)
+    
     let cantidadTotal = 0
     let suma = 0
-    for(let libro of nuevoCarrito){
-        suma = suma + libro.precio * libro.cant
-        cantidadTotal =cantidadTotal + libro.cantidad
-    }
+
+    nuevoCarrito.forEach(e => {
+      suma = suma + e.precio * e.cant
+      cantidadTotal = cantidadTotal + e.cant
+    });
+
     setTotal(suma)
+    
     setCantidad(cantidadTotal)
+
   };
 
   const limpiar = () => {

@@ -40,18 +40,11 @@ export const ItemListContainer = (greeting) => {
     })
   },[idCat])
 
-  if (loading){
-    return <h1>Cargando...</h1>
-  }else{
-    return (
-      <>
-        <div>
-          <ItemList libros= {libros}/>
-        </div>
-        
-      </>
-    )
-  }
+  return(
+    <>
+      {loading ? <h1>Cargando...</h1> : <div> <ItemList libros= {libros}/> </div>}
+    </>  
+  )
 }
 
 

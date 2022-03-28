@@ -38,16 +38,11 @@ const ItemDetailCointainer = () => {
     })
   },[idLib])
 
-  
-  if (loading){
-    return <h1>Cargando...</h1>
-  }else{
-    return (
-      <div className='itemDetailContainer'>
-        <ItemDetail libro= {libro}/>
-      </div>
-    )
-  }
+  return(
+    <>
+      {loading ? <h1>Cargando...</h1> : <div className='itemDetailContainer'> <ItemDetail libro= {libro}/> </div>}
+    </>  
+  )
   
 }
 
