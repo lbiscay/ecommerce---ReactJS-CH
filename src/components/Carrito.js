@@ -7,34 +7,32 @@ export const Carrito = () => {
 
   const {carrito,total,removerItem,limpiar} = useContext(cartContext)
 
-  if(carrito.length === 0){
-    return(
+  return(
     <>
-      <div className='carrito-vacio'>
-        <h2>No hay productos en el carrito</h2>
-        <Link to='/'>
-          <button>Ir al catálogo</button>
-        </Link>
-      </div>
-    </>    
-    )
-  }else{
-    return (
-      <div>
-        {carrito.map(libro=>(
-          <div key={libro.id}>
-            <p>{libro.titulo}</p>
-            <p>{libro.cant} x {libro.precio}</p>
-            <p>Total parcial: ${libro.cant * libro.precio}</p>
-            <button onClick={()=>{removerItem(libro.id)}}>Eliminar producto de carrito</button>
-          </div>
-          
-        ))}
-        <div>
-          <p>Total: ${total}</p>
-          <button onClick={()=>{limpiar()}}>Limpiar carrito</button>
+      {carrito.length === 0
+      ? 
+        <div className='carrito-vacio'>
+          <h2>No hay productos en el carrito</h2>
+          <Link to='/'>
+            <button>Ir al catálogo</button>
+          </Link>
         </div>
-      </div>
-    )
-  }
+      :
+        <div>
+          {carrito.map(libro=>(
+            <div key={libro.id}>
+              <p>{libro.titulo}</p>
+              <p>{libro.cant} x {libro.precio}</p>
+              <p>Total parcial: ${libro.cant * libro.precio}</p>
+              <button onClick={()=>{removerItem(libro.id)}}>Eliminar producto de carrito</button>
+            </div>
+          ))}
+          <div>
+            <p>Total: ${total}</p>
+            <button onClick={()=>{limpiar()}}>Limpiar carrito</button>
+          </div>
+        </div>
+      }
+    </>
+  )
 }

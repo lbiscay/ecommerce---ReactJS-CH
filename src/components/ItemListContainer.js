@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react'
 import ItemList from './ItemList'
 import {toast} from 'react-toastify'
 import { useParams } from 'react-router-dom'
-import librosIniciales from '../librosIniciales'
+import { getDocs } from 'firebase/firestore'
+import {consultaABDCatalogo,filtrar} from '../functionsFirebase'
+
 
 
 export const ItemListContainer = (greeting) => {
@@ -10,34 +12,55 @@ export const ItemListContainer = (greeting) => {
   const [loading,setLoad] = useState(true)
 
   const {idCat}= useParams()
-  
+
   useEffect(()=>{
     toast.info('Cargando catálogo de libros')
 
-    const pedido = new Promise((res,rej)=>{
-      setTimeout(()=>{
-        res(librosIniciales)
-      },2000)
-    })
-    pedido.then((data)=>{
-      toast.dismiss()
-      if(idCat === undefined){
-        setLibros(data)
-      }else{
-        let librosxCat = data.filter(n=>
-          n.URLCategoria === idCat
-        )
-        setLibros(librosxCat)
-      }
+    if(idCat === undefined){
+      const pedido = getDocs(consultaABDCatalogo())
 
-    })
-    .catch((error)=>{
-      toast.dismiss()
-      toast.error('Ocurrió un error al cargar el catálogo, intente nuevamente.')
-    })
-    .finally(()=>{
-      setLoad(false)
-    })
+      pedido
+      .then(resultado=>{
+        toast.dismiss()
+
+        const catalogoLibros = []
+
+        resultado.docs.forEach(doc=>{
+          catalogoLibros.push(doc.data())
+        })
+
+        setLibros(catalogoLibros)
+      })
+      .catch((error)=>{
+          toast.dismiss()
+          toast.error('Ocurrió un error al cargar el catálogo, intente nuevamente.')
+      })
+      .finally(()=>{
+        setLoad(false)
+      })
+    }else{
+      const pedido = filtrar('urlcategoria',idCat)
+
+      pedido
+      .then(resultado=>{
+        toast.dismiss()
+
+        const catalogoLibrosXCat = []
+
+        resultado.docs.forEach(doc=>{
+          catalogoLibrosXCat.push(doc.data())
+        })
+
+        setLibros(catalogoLibrosXCat)
+      })
+      .catch((error)=>{
+        toast.dismiss()
+        toast.error('Ocurrió un error al cargar el catálogo, intente nuevamente.')
+      })
+      .finally(()=>{
+        setLoad(false)
+      })
+    }
   },[idCat])
 
   return(
@@ -46,7 +69,3 @@ export const ItemListContainer = (greeting) => {
     </>  
   )
 }
-
-
-
-

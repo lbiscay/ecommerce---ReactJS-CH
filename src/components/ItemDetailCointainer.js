@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
-import librosIniciales from '../librosIniciales'
 import ItemDetail from './ItemDetail'
 import { useParams } from 'react-router-dom'
 import {toast} from 'react-toastify'
+import {filtrar} from '../functionsFirebase'
+
 
 
 const ItemDetailCointainer = () => {
@@ -14,18 +15,12 @@ const ItemDetailCointainer = () => {
 
   useEffect(()=>{
     toast.info('Cargando libro...')
+    const pedido = filtrar('id',Number(idLib))
 
-    const pedido = new Promise((res,rej)=>{
-      setTimeout(()=>{
-        res(librosIniciales)
-      },2000)
-    })
-    pedido.then((data)=>{
+    pedido.then((resultado)=>{
       toast.dismiss()
-      let libroxID = data.filter(n=>
-         n.id === Number(idLib) 
-      )
-      
+
+      const libroxID = resultado.docs.map(doc=>doc.data())
       setLibro(libroxID[0])
       
     })

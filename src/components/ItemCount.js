@@ -18,9 +18,7 @@ export const ItemCount = ({stock,inicial, onAdd}) => {
       alert('No hay items suficientes en stock, intente con una cantidad menor.')
     }else{
       onAdd(estado)
-    }
-    
-    
+    }   
   }
 
   return (
