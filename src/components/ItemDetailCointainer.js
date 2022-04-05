@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import ItemDetail from './ItemDetail'
 import { useParams } from 'react-router-dom'
 import {toast} from 'react-toastify'
-import {filtrar} from '../functionsFirebase'
+import {filtrar} from '../firebase/functionsFirebase'
 
 
 
@@ -19,9 +19,7 @@ const ItemDetailCointainer = () => {
 
     pedido.then((resultado)=>{
       toast.dismiss()
-
-      const libroxID = resultado.docs.map(doc=>doc.data())
-      setLibro(libroxID[0])
+      setLibro(resultado.docs[0].data())
       
     })
     .catch((error)=>{
@@ -35,7 +33,7 @@ const ItemDetailCointainer = () => {
 
   return(
     <>
-      {loading ? <h1>Cargando...</h1> : <div className='itemDetailContainer'> <ItemDetail libro= {libro}/> </div>}
+      {loading ? <h1>Cargando...</h1> : <div className='itemDetailContainer'> <ItemDetail libro = {libro}/> </div>}
     </>  
   )
   

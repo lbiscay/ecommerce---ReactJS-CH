@@ -3,7 +3,7 @@ import ItemList from './ItemList'
 import {toast} from 'react-toastify'
 import { useParams } from 'react-router-dom'
 import { getDocs } from 'firebase/firestore'
-import {consultaABDCatalogo,filtrar} from '../functionsFirebase'
+import {consultaABDCatalogo,filtrar} from '../firebase/functionsFirebase'
 
 
 
