@@ -22,11 +22,13 @@ header{
     align-items: center;
     justify-content: space-between;
     box-shadow: 0px 1px 2px;
+    
 }
 
 a{
     text-decoration: none;
 }
+
     nav{
         a{
             margin-left: 1rem;
@@ -34,10 +36,6 @@ a{
             color: black;
         }
     }
-
-#greeting1{
-    text-align: center;
-}
 
 .libro{
     margin: 10px;
@@ -49,6 +47,7 @@ a{
     background-color: rgb(182, 182, 182);
     --bs-text-opacity: 1;
     color: rgba(var(--bs-dark-rgb),var(--bs-text-opacity))!important;
+    
 
     p{  
     text-align: center;
@@ -63,14 +62,19 @@ a{
     img{
         margin: 10px;
         margin-left: 25px;
+
     }
     
 }
 
 .listaProductos{
-    display: inline-flex;
-    align-items: flex-start;
+    float: left;
+    display: flex;
+    align-items: center;
     flex-direction: row;
+    justify-content: center;
+    flex-flow: wrap;
+    
 }
 .itemDetailContainer{
     display: flex;
@@ -159,3 +163,63 @@ a{
     margin-top: 20px
 }
 
+footer{
+    background-color: rgb(156, 154, 154);
+    display: flex;
+    padding: 0.8rem 1rem;
+    box-shadow: 0px -1px 2px;
+    bottom: 0;
+    width: 100%;
+    
+}
+
+.buscador-orden{
+    text-align: center;
+    display: flex;
+    margin: 5px;
+    h4{
+        margin: 5px;
+    }
+    input{
+        margin: 5px;
+    }
+    button{
+        margin: 5px;
+    }
+}
+
+.orden-no-encontrada-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+
+    h3{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+}
+
+.ordenDetalle{
+    display: flex;
+    width: 600px;
+    margin: 10px;
+    box-shadow: 0 6px 6px hsl(0deg 0% 0% /0.3);
+    padding: 10px;
+    border-radius: 5px;
+    --bs-bg-opacity: 0.25;
+    background-color: rgb(182, 182, 182);
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-dark-rgb),var(--bs-text-opacity))!important;
+
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.libro:hover{
+    transform: scale(1.05);
+}

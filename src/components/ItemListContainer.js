@@ -39,7 +39,7 @@ export const ItemListContainer = (greeting) => {
         setLoad(false)
       })
     }else{
-      const pedido = filtrar('urlcategoria',idCat)
+      const pedido = filtrar(consultaABDCatalogo(),'urlcategoria',idCat)
 
       pedido
       .then(resultado=>{
@@ -65,7 +65,7 @@ export const ItemListContainer = (greeting) => {
 
   return(
     <>
-      {loading ? <h1>Cargando...</h1> : <div> <ItemList libros= {libros}/> </div>}
+      {loading ? <h1>Cargando...</h1> : <ItemList libros= {libros}/>}
     </>  
   )
 }

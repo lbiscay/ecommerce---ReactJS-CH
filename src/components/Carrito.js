@@ -2,7 +2,7 @@ import { cartContext } from './CartContext'
 import { useContext, useState} from 'react'
 import { Link } from "react-router-dom"
 import { serverTimestamp } from 'firebase/firestore'
-import { pedido } from '../firebase/functionsFirebase'
+import { nuevaOrden } from '../firebase/functionsFirebase'
 import { toast } from 'react-toastify'
 
 export const Carrito = () => {
@@ -10,43 +10,45 @@ export const Carrito = () => {
   const [loading,setLoad] = useState(true)
   const [idPedido,setIdPedido] = useState('')
 
-  // const [nombre,setNombre]=useState('')
-  // const [telefono,setTelefono]=useState('')
-  // const [mail,setMail]=useState('')
+  const [nombre,setNombre]=useState('')
+  const [telefono,setTelefono]=useState('')
+  const [mail,setMail]=useState('')
 
   const {carrito,total,removerItem,limpiar} = useContext(cartContext)
 
-  // const handleChange = ({target}) => {
-  //   console.log(target)
-  //   switch(target.name){
-  //     case 'nombre': setNombre(target.value)
-  //     break;
-  //     case 'telefono': setTelefono(target.value)
-  //     break;
-  //     case 'mail': setMail(target.value)
-  //     break;
-  //     default:
-  //   }
-  // }
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-  // }
+  const handleChange = ({target}) => {
+  
+    switch(target.id){
+      case 'nombre': setNombre(target.value)
+      break;
+      case 'telefono': setTelefono(Number(target.value))
+      break;
+      case 'mail': setMail(target.value)
+      break;
+      default:
+    }
+
+  }
 
   const finalizarCompra = () => {
     toast.info('Procesando pedido...')
 
     const orden = {
       comprador: {
-        nombre:'Lucas',
-        telefono:'123123123',
-        mail:'asdad@gmail.com',
+        nombre: nombre,
+        telefono: telefono,
+        mail: mail,
       },
       items: carrito,
       date: serverTimestamp(),
       total: total,
     }
+    
+    setNombre('')
+    setTelefono('')
+    setMail('')
 
-    pedido(orden)
+    nuevaOrden(orden)
       .then((res)=>{
         setIdPedido(res.id)
         toast.dismiss()
@@ -88,14 +90,14 @@ export const Carrito = () => {
             <button onClick={()=>{limpiar()}}>Limpiar carrito</button>
           </div>
           <div className='form'>
-            {/* <form onSubmit={handleSubmit}>
+            <form>
               <label htmlFor="nombre"><input id = "nombre" type="text" placeholder="Nombre" value={nombre} onChange={handleChange} required/></label>
-              <label htmlFor="telefono"><input id = "telefono" type="text" placeholder="N° de teléfono" value={telefono} onChange={handleChange} required/></label>
+              <label htmlFor="telefono"><input id = "telefono" type="number" placeholder="N° de teléfono" value={telefono} onChange={handleChange} required/></label>
               <label htmlFor="mail"><input id = "mail" type="text" placeholder="Mail" value={mail} onChange={handleChange} required/></label>
-              <br/> */}
-              <button className='btn-form' type = 'submit' onClick={finalizarCompra}>Finalizar compra</button>
-            {/* </form> */}
+              <br/>
+            </form>
             <br />
+            <button className='btn-form' type = 'submit' onClick={finalizarCompra}>Finalizar compra</button>
             {!loading ? 
             <div className='checkoutcarrito'>
               <h2>Pedido completado!</h2>

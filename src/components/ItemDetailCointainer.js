@@ -3,8 +3,7 @@ import ItemDetail from './ItemDetail'
 import { useParams } from 'react-router-dom'
 import {toast} from 'react-toastify'
 import {filtrar} from '../firebase/functionsFirebase'
-
-
+import {consultaABDCatalogo} from '../firebase/functionsFirebase'
 
 const ItemDetailCointainer = () => {
 
@@ -15,7 +14,7 @@ const ItemDetailCointainer = () => {
 
   useEffect(()=>{
     toast.info('Cargando libro...')
-    const pedido = filtrar('id',Number(idLib))
+    const pedido = filtrar(consultaABDCatalogo(),'id',Number(idLib))
 
     pedido.then((resultado)=>{
       toast.dismiss()

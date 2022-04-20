@@ -5,7 +5,7 @@ import { cartContext } from './CartContext'
 import { useContext } from 'react'
 
 const ItemDetail = (props) => {
-  const [stock,setStock] = useState(10)
+  const [stock,setStock] = useState(props.libro.stock)
   const [cantidad,setCantidad] = useState(0)
 
   const {agregarItem} = useContext(cartContext)
@@ -14,7 +14,6 @@ const ItemDetail = (props) => {
     setCantidad(cant)
     setStock(stock-cant)
   }
-
 
   return (
     <>
