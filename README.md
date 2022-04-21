@@ -36,8 +36,7 @@ Genera los archivos para producción en la carpeta /build.
 * Webpack 5.70
 * Firebase 9.6
 
-## [Proyecto subido a Netlify](http://localhost:3000)
+## [Proyecto subido a Netlify](https://ch-ecommerce-lb.netlify.app/)
 
 
-
-## [Gif demostrativo de funcionamiento](http://localhost:3000)
+## [Gif demostrativo de funcionamiento](https://drive.google.com/file/d/1Eed6-s1n2VEitq0gaW-RH_YAiStzjNC8/view?usp=sharing)
