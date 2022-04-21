@@ -8,11 +8,14 @@ html{
     
     body{
         background-color: rgb(250, 224, 224);
-        height: 100%;
         h1{
             text-align:center;
         }
     }
+}
+
+#root{
+    height: 100vh;
 }
 
 header{
@@ -81,6 +84,8 @@ a{
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    margin: 23px;
+    margin-bottom: 55px;
 }
 .libroDetalle{
     display: flex;
@@ -98,6 +103,10 @@ a{
     h3{
         text-align: left;
     }
+}
+
+.carga{
+    margin-bottom: 579px;
 }
 
 .columna{
@@ -128,6 +137,7 @@ a{
 
 .carrito-vacio{
     text-align: center;
+    margin-bottom: 548px;
     h2{
         padding: 10px;
     }

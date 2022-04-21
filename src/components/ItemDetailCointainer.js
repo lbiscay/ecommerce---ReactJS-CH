@@ -32,7 +32,7 @@ const ItemDetailCointainer = () => {
 
   return(
     <>
-      {loading ? <h1>Cargando...</h1> : <div className='itemDetailContainer'> <ItemDetail libro = {libro}/> </div>}
+      {loading ? <div className='carga'><h1>Cargando...</h1></div> : <div className='itemDetailContainer'> <ItemDetail libro = {libro}/> </div>}
     </>  
   )
   

@@ -65,7 +65,7 @@ export const ItemListContainer = (greeting) => {
 
   return(
     <>
-      {loading ? <h1>Cargando...</h1> : <ItemList libros= {libros}/>}
+      {loading ? <div className='carga'><h1>Cargando...</h1></div> : <ItemList libros= {libros}/>}
     </>  
   )
 }
